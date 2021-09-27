@@ -1,0 +1,8 @@
+ile_dni.cbp
+ile_dni.depend
+ile_dni.layout
+.vscode/launch.json
+bin/Debug/ile_dni.exe
+bin/Release/ile_dni.exe
+obj/Debug/main.o
+obj/Release/main.o

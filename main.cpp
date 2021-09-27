@@ -17,7 +17,7 @@ zlyRok:
     cin >> urRok;
     if (urRok > lt.wYear)
     {
-        cout << "Zly format roku!. Wprowadz ponownie.\n";
+        cerr << "Zly format roku!. Wprowadz ponownie.\n";
         goto zlyRok;
     }
 zlyMiesiac:
@@ -26,7 +26,7 @@ zlyMiesiac:
     cin >> urMiesiac;
     if ((urRok == lt.wYear) && (urMiesiac > lt.wMonth) || (urMiesiac > 12))
     {
-        cout << "Zly format miesiaca!. Wprowadz ponownie.\n";
+        cerr << "Zly format miesiaca!. Wprowadz ponownie.\n";
         goto zlyMiesiac;
     }
 zlyDzien:
@@ -35,7 +35,7 @@ zlyDzien:
     cin >> urDzien;
     if ((urRok == lt.wYear) && (urMiesiac == lt.wMonth) && (urDzien >= lt.wDay))
     {
-        cout << "Zly format dnia!. Wprowadz ponownie.\n";
+        cerr << "Zly format dnia!. Wprowadz ponownie.\n";
         goto zlyDzien;
     }
     else
@@ -52,7 +52,7 @@ zlyDzien:
             {
                 if (urDzien > 31)
                 {
-                    cout << "Zly format dnia!. Wprowadz ponownie.\n";
+                    cerr << "Zly format dnia!. Wprowadz ponownie.\n";
                     goto zlyDzien;
                 }
                 break;
@@ -73,7 +73,7 @@ zlyDzien:
             {
                 if (urDzien > 29)
                 {
-                    cout << "Zly format dnia!. Wprowadz ponownie.\n";
+                    cerr << "Zly format dnia!. Wprowadz ponownie.\n";
                     goto zlyDzien;
                 }
                 else if (urDzien == 29)
@@ -84,7 +84,7 @@ zlyDzien:
                     }
                     else
                     {
-                        cout << "Zly format dnia!. Wprowadz ponownie.\n";
+                        cerr << "Zly format dnia!. Wprowadz ponownie.\n";
                         goto zlyDzien;
                     }
                 }
