@@ -6,3 +6,5 @@ bin/Debug/ile_dni.exe
 bin/Release/ile_dni.exe
 obj/Debug/main.o
 obj/Release/main.o
+main.exe
+main.o
