@@ -4,6 +4,7 @@
 using namespace std;
 
 unsigned int urRok, urMiesiac, urDzien;
+int dniRoku = 0;
 
 int main()
 {
@@ -49,47 +50,47 @@ zlyDzien:
             case 8:
             case 10:
             case 12:
-            {
-                if (urDzien > 31)
                 {
-                    cerr << "Zly format dnia!. Wprowadz ponownie.\n";
-                    goto zlyDzien;
-                }
-                break;
-            }
-            case 4:
-            case 6:
-            case 9:
-            case 11:
-            {
-                if (urDzien > 30)
-                {
-                    cout << "Zly format dnia!. Wprowadz ponownie.\n";
-                    goto zlyDzien;
-                }
-                break;
-            }
-            case 2:
-            {
-                if (urDzien > 29)
-                {
-                    cerr << "Zly format dnia!. Wprowadz ponownie.\n";
-                    goto zlyDzien;
-                }
-                else if (urDzien == 29)
-                {
-                    if (((urRok % 4 == 0) && (urRok % 100 != 0)) || (urRok % 400 == 0))
-                    {
-                        goto dalej;
-                    }
-                    else
+                    if (urDzien > 31)
                     {
                         cerr << "Zly format dnia!. Wprowadz ponownie.\n";
                         goto zlyDzien;
                     }
+                    break;
                 }
-                break;
-            }
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                {
+                    if (urDzien > 30)
+                    {
+                        cout << "Zly format dnia!. Wprowadz ponownie.\n";
+                        goto zlyDzien;
+                    }
+                    break;
+                }
+            case 2:
+                {
+                    if (urDzien > 29)
+                    {
+                        cerr << "Zly format dnia!. Wprowadz ponownie.\n";
+                        goto zlyDzien;
+                    }
+                    else if (urDzien == 29)
+                    {
+                        if (((urRok % 4 == 0) && (urRok % 100 != 0)) || (urRok % 400 == 0))
+                        {
+                            goto dalej;
+                        }
+                        else
+                        {
+                            cerr << "Zly format dnia!. Wprowadz ponownie.\n";
+                            goto zlyDzien;
+                        }
+                    }
+                    break;
+                }
         }
     }
 dalej:
@@ -111,9 +112,19 @@ dalej:
     cout << lt.wDay << endl;
     cout << "--------------------------\n";
     int ileDodac;
-    ileDodac = (lt.wYear - urRok) / 4;
-    cout << ileDodac << endl;
+    //ileDodac = (lt.wYear - urRok) / 4;
+    //cout << ileDodac << endl;
     int dniMiesiaca [12] {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    for (int i = 0; i < (urMiesiac - 1); i++)
+    {
+        dniRoku += dniMiesiaca[i];
+    }
+    int dzienRoku;
+    if (urMiesiac != 12)
+        dzienRoku = dniRoku + urDzien;
+    else
+        dzienRoku = 365 - urDzien;
+    cout << dzienRoku << endl;
     cout << endl;
     system ("pause");
     return 0;
