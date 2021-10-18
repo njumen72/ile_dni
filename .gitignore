@@ -8,3 +8,5 @@ obj/Debug/main.o
 obj/Release/main.o
 main.exe
 main.o
+obj/Release/przestepny.o
+obj/Release/zodiak.o
