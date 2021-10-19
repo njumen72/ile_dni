@@ -16,7 +16,7 @@ int main()
     GetSystemTime (&lt);
     cout << "Podaj date swoich narodzin\n";
     cout << "--------------------------\n";
-    //waliacja wprowadzanych danych
+    // waliacja wprowadzanych danych
 zlyRok:
     cout.width (17);
     cout << "Podaj rok: ";
@@ -98,7 +98,7 @@ zlyDzien:
         }
     }
 dalej:
-    //wyswietlanie danych wejsciowych
+    // wyswietlanie danych wejsciowych
     cout << "--------------------------\n";
     cout.width (16);
     cout << "Data urodzenia: " << urRok << ".";
@@ -116,7 +116,7 @@ dalej:
     cout.width (2);
     cout << lt.wDay << endl;
     cout << "--------------------------\n";
-    //kalkulacja dnia roku urodzenia
+    // kalkulacja dnia roku urodzenia
     int dniMiesiaca [12] {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
     for (int i = 0; i < (urMiesiac - 1); i++)
     {
@@ -142,14 +142,14 @@ dalej:
     {
         dni = 365 - urDzienRoku;
     }
-    //kalkulacja ilosci dni w latach minionych
+    // kalkulacja ilosci dni w latach minionych
     int lata;
     lata = lt.wYear - urRok;
     //cout << lata << " lat" << endl;
     dni += lata * 365;
     //cout << dni << endl;
     int ileDodac;
-    ileDodac = (lt.wYear - urRok) / 4; //dni przestepnych w zakresie lat
+    ileDodac = (lt.wYear - urRok) / 4; // dni przestepnych w zakresie lat
     dni += ileDodac;
     //------------------------
     dniRoku = 0;
@@ -158,8 +158,7 @@ dalej:
         dniRoku += dniMiesiaca[j];
     }
     int dzien;
-    dzien = dniRoku + lt.wDay;
-    cout << dzien << " dzien biezacego roku" << endl;
+    dzien = dniRoku + lt.wDay; // dzien biezacego roku
     if (przestepny (lt.wYear))
     {
         dni -= (366 - dzien);
@@ -169,7 +168,8 @@ dalej:
         dni -= (365 - dzien);
     }
     cout << "Liczysz " << dni << " dni" << endl;
-    cout << "Masz " << dni / 365 << " lat(a)" << endl;
+    lata = (dni - ileDodac) / 365;
+    cout << "Masz " << lata << " lat(a)" << endl;
     cout << endl;
     system ("pause");
     return 0;
