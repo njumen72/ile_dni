@@ -45,7 +45,7 @@ void zodiak (int miesiac, int dzien)
             break;
         case 7:
             if (dzien < 23)
-                cout << "Rak";
+                cout << " Rak";
             else
                 cout << " Lew";
             break;

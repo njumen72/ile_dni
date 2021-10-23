@@ -10,3 +10,4 @@ main.exe
 main.o
 obj/Release/przestepny.o
 obj/Release/zodiak.o
+doxygen/doxyfile
