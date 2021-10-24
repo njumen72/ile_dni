@@ -2,19 +2,19 @@
 #include <windows.h>
 #include "zodiak.h"
 #include "przestepny.h"
+#include "dzienTygodnia.h"
 
 using namespace std;
 
 void zlaWartosc (void);
 
 unsigned int urRok, urMiesiac, urDzien;
-int dniRoku = 0;
+int dniRoku;
 
 int main()
 {
     SYSTEMTIME lt;
-    GetSystemTime (&lt);
-    
+    GetLocalTime (&lt);
     cout << "Podaj date swoich narodzin\n";
     cout << "--------------------------\n";
     // waliacja wprowadzanych danych
@@ -121,7 +121,8 @@ dalej:
     cout.width (2);
     cout << lt.wMonth << ".";
     cout.width (2);
-    cout << lt.wDay << endl;
+    cout << lt.wDay;
+    dzienTygodnia (lt.wDayOfWeek);
     cout << "--------------------------\n";
     // kalkulacja dnia roku urodzenia
     int dniMiesiaca [12] {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
@@ -139,7 +140,7 @@ dalej:
     }
 
     cout << "Urodzil(es/as) sie w " << urDzienRoku << " dniu " << urRok << " roku" << endl;
-    cout << "Twoj znak zodiaku to";    
+    cout << "Twoj znak zodiaku to";
     zodiak (urMiesiac, urDzien);
     cout << endl;
     int dni;

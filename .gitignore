@@ -11,3 +11,10 @@ main.o
 obj/Release/przestepny.o
 obj/Release/zodiak.o
 doxygen/doxyfile
+main.cpp
+.vs/ProjectSettings.json
+.vs/VSWorkspaceState.json
+.vs/ile_dni/v16/.suo
+.vs/ile_dni/v16/Browse.VC.db
+.vs/slnx.sqlite
+obj/Release/dzienTygodnia.o

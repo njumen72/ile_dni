@@ -1,0 +1,6 @@
+#ifndef DZIENTYGODNIA_H_INCLUDED
+#define DZIENTYGODNIA_H_INCLUDED
+
+void dzienTygodnia(int dzTyg);
+
+#endif // DZIENTYGODNIA_H_INCLUDED
