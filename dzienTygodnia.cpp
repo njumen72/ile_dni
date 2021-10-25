@@ -8,6 +8,10 @@ void dzienTygodnia (int dzTyg)
 {
     switch (dzTyg)
     {
+        case 0:
+            cout << " (niedziela)\n";
+            break;
+
         case 1:
             cout << " (poniedzialek)\n";
             break;
@@ -30,10 +34,6 @@ void dzienTygodnia (int dzTyg)
 
         case 6:
             cout << " (sobota)\n";
-            break;
-
-        case 0:
-            cout << " (niedziela)\n";
             break;
     }
 }

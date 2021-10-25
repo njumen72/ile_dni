@@ -4,12 +4,14 @@
 #include "przestepny.h"
 #include "dzienTygodnia.h"
 
+
 using namespace std;
 
 void zlaWartosc (void);
 
 unsigned int urRok, urMiesiac, urDzien;
-int dniRoku;
+int dniRoku = 0;
+int dniMiesiaca [12] {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
 int main()
 {
@@ -105,27 +107,7 @@ zlyDzien:
     }
 
 dalej:
-    // wyswietlanie danych wejsciowych
-    cout << "--------------------------\n";
-    cout.width (16);
-    cout << "Data urodzenia: " << urRok << ".";
-    cout.fill ('0');
-    cout.width (2);
-    cout << urMiesiac << ".";
-    cout.width (2);
-    cout << urDzien << endl;
-    cout.fill (' ');
-    cout.width (16);
-    cout << " Biezaca data: " << lt.wYear << ".";
-    cout.fill ('0');
-    cout.width (2);
-    cout << lt.wMonth << ".";
-    cout.width (2);
-    cout << lt.wDay;
-    dzienTygodnia (lt.wDayOfWeek);
-    cout << "--------------------------\n";
     // kalkulacja dnia roku urodzenia
-    int dniMiesiaca [12] {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
     for (int i = 0; i < (urMiesiac - 1); i++)
         dniRoku += dniMiesiaca[i];
@@ -139,10 +121,6 @@ dalej:
             urDzienRoku++;
     }
 
-    cout << "Urodzil(es/as) sie w " << urDzienRoku << " dniu " << urRok << " roku" << endl;
-    cout << "Twoj znak zodiaku to";
-    zodiak (urMiesiac, urDzien);
-    cout << endl;
     int dni;
 
     if (przestepny (urRok))
@@ -153,9 +131,7 @@ dalej:
     // kalkulacja ilosci dni w latach minionych
     int lata;
     lata = lt.wYear - urRok;
-    //cout << lata << " lat" << endl;
     dni += lata * 365;
-    //cout << dni << endl;
     int ileDodac;
     ileDodac = (lt.wYear - urRok) / 4; // dni przestepnych w zakresie lat
     dni += ileDodac;
@@ -173,8 +149,40 @@ dalej:
     else
         dni -= (365 - dzien);
 
-    cout << "Liczysz " << dni << " dni" << endl;
+    int urDzTygodnia;
+    urDzTygodnia = dni % 7;
+
+    if (dni % 7 == 0)
+        urDzTygodnia = lt.wDayOfWeek;
+    else
+        urDzTygodnia;
+
     lata = (dni - ileDodac) / 365;
+    // wyswietlanie danych wejsciowych
+    cout << "--------------------------\n";
+    cout.width (16);
+    cout << "Data urodzenia: " << urRok << ".";
+    cout.fill ('0');
+    cout.width (2);
+    cout << urMiesiac << ".";
+    cout.width (2);
+    cout << urDzien << endl;
+    //dzienTygodnia (urDzTygodnia);
+    cout.fill (' ');
+    cout.width (16);
+    cout << " Biezaca data: " << lt.wYear << ".";
+    cout.fill ('0');
+    cout.width (2);
+    cout << lt.wMonth << ".";
+    cout.width (2);
+    cout << lt.wDay;
+    dzienTygodnia (lt.wDayOfWeek);
+    cout << "--------------------------\n";
+    cout << "Urodzil(es/as) sie w " << urDzienRoku << " dniu " << urRok << " roku" << endl;
+    cout << "Twoj znak zodiaku to";
+    zodiak (urMiesiac, urDzien);
+    cout << endl;
+    cout << "Liczysz " << dni << " dni" << endl;
     cout << "Masz " << lata << " lat(a)" << endl;
     cout << endl;
     system ("pause");
