@@ -1,13 +1,10 @@
 #include <iostream>
 #include <windows.h>
-#include "zodiak.h"
-#include "przestepny.h"
-#include "dzienTygodnia.h"
-
+#include "biblioteka.h"
 
 using namespace std;
 
-void zlaWartosc (void);
+void zlaWartosc ();
 
 unsigned int urRok, urMiesiac, urDzien;
 int dniRoku = 0;
@@ -189,7 +186,7 @@ dalej:
     return 0;
 }
 //----------------------------------------------
-void zlaWartosc (void)
+void zlaWartosc ()
 {
     cerr << "Zla wartosc. Wprowadz ponownie.\n";
 }

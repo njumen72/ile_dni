@@ -1,5 +1,5 @@
 #include <iostream>
-#include "zodiak.h"
+#include "biblioteka.h"
 
 using namespace std;
 

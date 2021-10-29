@@ -1,4 +1,4 @@
-#include "przestepny.h"
+#include "biblioteka.h"
 
 bool przestepny (int rok)
 {

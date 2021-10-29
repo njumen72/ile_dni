@@ -1,6 +1,6 @@
 #include <iostream>
 #include <windows.h>
-#include "dzienTygodnia.h"
+#include "biblioteka.h"
 
 using namespace std;
 
