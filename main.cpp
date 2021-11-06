@@ -151,10 +151,7 @@ dalej:
 
     int urDzTygodnia;
     urDzTygodnia = dni % 7;
-
-    if ( urDzTygodnia != lt.wDayOfWeek)
-        urDzTygodnia = (lt.wDayOfWeek - urDzTygodnia) % 7;
-
+    urDzTygodnia = (lt.wDayOfWeek - urDzTygodnia) % 7;
     lata = (dni - ileDodac) / 365;
     // wyswietlanie danych wejsciowych
     cout << "--------------------------\n";
