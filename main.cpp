@@ -100,9 +100,8 @@ zlyDzien:
     }
 
 dalej:
-    // kalkulacja dnia roku urodzenia
 
-    for (int i = 0; i < (urMiesiac - 1); i++)
+    for (int i = 0; i < (urMiesiac - 1); i++) // kalkulacja dnia roku urodzenia
         dniRoku += dniMiesiaca[i];
 
     int urDzienRoku;
@@ -121,21 +120,29 @@ dalej:
     else
         dni = 365 - urDzienRoku;
 
-    // kalkulacja ilosci dni w latach minionych
     int lata;
-    lata = lt.wYear - urRok;
+    lata = lt.wYear - urRok; // kalkulacja ilosci dni w latach minionych
     dni += lata * 365;
-    int ileDodac;
-    ileDodac = (lt.wYear - urRok) / 4; // dni przestepnych w zakresie lat
+    int ileDodac = 0;
+
+    for (int i = urRok; i <= lt.wYear; i++) // dni przestepnych w zakresie lat
+    {
+        if (przestepny (i))
+            ileDodac++;
+    }
+
+    if (przestepny (urRok))
+        ileDodac--;
+
     dni += ileDodac;
-    //------------------------
+    // dzien biezacego roku
     dniRoku = 0;
 
     for (int j = 0; j < (lt.wMonth - 1); j++)
         dniRoku += dniMiesiaca[j];
 
     int dzien;
-    dzien = dniRoku + lt.wDay; // dzien biezacego roku
+    dzien = dniRoku + lt.wDay;
 
     if (przestepny (lt.wYear))
         dni -= (366 - dzien);
