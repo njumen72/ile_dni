@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void zlaWartosc ();
+inline void zlaWartosc ();
 
 unsigned int urRok, urMiesiac, urDzien;
 int dniRoku = 0;
@@ -60,44 +60,40 @@ zlyDzien:
             case 8:
             case 10:
             case 12:
+                if (urDzien > 31)
                 {
-                    if (urDzien > 31)
-                    {
-                        zlaWartosc();
-                        goto zlyDzien;
-                    }
+                    zlaWartosc();
+                    goto zlyDzien;
                 }
+
                 break;
 
             case 4:
             case 6:
             case 9:
             case 11:
+                if (urDzien > 30)
                 {
-                    if (urDzien > 30)
-                    {
-                        zlaWartosc();
-                        goto zlyDzien;
-                    }
+                    zlaWartosc();
+                    goto zlyDzien;
                 }
+
                 break;
 
             case 2:
+                if (urDzien > 29)
                 {
-                    if (urDzien > 29)
+                    zlaWartosc();
+                    goto zlyDzien;
+                }
+                else if (urDzien == 29)
+                {
+                    if (przestepny (urRok))
+                        goto dalej;
+                    else
                     {
                         zlaWartosc();
                         goto zlyDzien;
-                    }
-                    else if (urDzien == 29)
-                    {
-                        if (przestepny (urRok))
-                            goto dalej;
-                        else
-                        {
-                            zlaWartosc();
-                            goto zlyDzien;
-                        }
                     }
                 }
         }
@@ -149,10 +145,8 @@ dalej:
     int urDzTygodnia;
     urDzTygodnia = dni % 7;
 
-    if (dni % 7 == 0)
-        urDzTygodnia = lt.wDayOfWeek;
-    else
-        urDzTygodnia;
+    if ( urDzTygodnia != lt.wDayOfWeek)
+        urDzTygodnia = (lt.wDayOfWeek - urDzTygodnia) % 7;
 
     lata = (dni - ileDodac) / 365;
     // wyswietlanie danych wejsciowych
@@ -163,8 +157,8 @@ dalej:
     cout.width (2);
     cout << urMiesiac << ".";
     cout.width (2);
-    cout << urDzien << endl;
-    //dzienTygodnia (urDzTygodnia);
+    cout << urDzien;
+    dzienTygodnia (urDzTygodnia);
     cout.fill (' ');
     cout.width (16);
     cout << " Biezaca data: " << lt.wYear << ".";
@@ -186,7 +180,7 @@ dalej:
     return 0;
 }
 //----------------------------------------------
-void zlaWartosc ()
+inline void zlaWartosc ()
 {
     cerr << "Zla wartosc. Wprowadz ponownie.\n";
 }
