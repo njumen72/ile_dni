@@ -33,7 +33,7 @@ zlyMiesiac:
     cout << "Podaj miesiac: ";
     cin >> urMiesiac;
 
-    if ((urRok == lt.wYear) && (urMiesiac > lt.wMonth) || (urMiesiac > 12))
+    if ((urRok == lt.wYear) && (urMiesiac > lt.wMonth))
     {
         zlaWartosc();
         goto zlyMiesiac;
@@ -150,8 +150,9 @@ dalej:
         dni -= (365 - dzien);
 
     int urDzTygodnia;
-    urDzTygodnia = dni % 7;
+    urDzTygodnia = dni % 7; // urodzeniowy dzien tygodnia
     urDzTygodnia = (lt.wDayOfWeek - urDzTygodnia) % 7;
+    // lata
     lata = (dni - ileDodac) / 365;
     // wyswietlanie danych wejsciowych
     cout << "--------------------------\n";
