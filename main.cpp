@@ -6,7 +6,7 @@ using namespace std;
 
 inline void zlaWartosc ();
 
-unsigned int urRok, urMiesiac, urDzien;
+int urRok, urMiesiac, urDzien;
 int dniRoku = 0;
 int dniMiesiaca [12] {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
@@ -16,13 +16,13 @@ int main()
     GetLocalTime (&lt);
     cout << "Podaj date swoich narodzin\n";
     cout << "--------------------------\n";
-    // waliacja wprowadzanych danych
+    // walidacja wprowadzanych danych
 zlyRok:
     cout.width (17);
     cout << "Podaj rok: ";
     cin >> urRok;
 
-    if (urRok > lt.wYear)
+    if ((urRok > lt.wYear) || (urRok < 1583)) // od poczadku 1583 obowiazuje kalendarz gregorianski
     {
         zlaWartosc();
         goto zlyRok;
@@ -33,7 +33,7 @@ zlyMiesiac:
     cout << "Podaj miesiac: ";
     cin >> urMiesiac;
 
-    if ((urRok == lt.wYear) && (urMiesiac > lt.wMonth))
+    if ((urMiesiac > 12) || (urMiesiac < 1) || ((urRok == lt.wYear) && (urMiesiac > lt.wMonth)))
     {
         zlaWartosc();
         goto zlyMiesiac;
@@ -44,7 +44,7 @@ zlyDzien:
     cout << "Podaj dzien: ";
     cin >> urDzien;
 
-    if ((urRok == lt.wYear) && (urMiesiac == lt.wMonth) && (urDzien >= lt.wDay))
+    if ((urDzien < 1) || ((urRok == lt.wYear) && (urMiesiac == lt.wMonth) && (urDzien >= lt.wDay)))
     {
         zlaWartosc();
         goto zlyDzien;
