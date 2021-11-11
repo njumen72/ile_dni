@@ -7,7 +7,7 @@ using namespace std;
 inline void zlaWartosc ();
 
 int urRok, urMiesiac, urDzien;
-int dniRoku = 0;
+int dniRoku;
 int dniMiesiaca [12] {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
 int main()
@@ -18,6 +18,7 @@ int main()
 
     do {
         system ("cls");
+        dniRoku = 0;
         cout << "Podaj date swoich narodzin\n";
         cout << "--------------------------\n";
         // walidacja wprowadzanych danych
