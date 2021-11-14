@@ -185,16 +185,31 @@ int main()
         zodiak (urMiesiac, urDzien);
         cout << endl;
         cout << "Liczysz " << dni << " dni" << endl;
-        cout << "Masz " << lata << " lat(a)" << endl;
-        cout << endl;
-        cout << "Zakoncz: t (tak) / n (nie) ? ";
+        int miesiace;
+        miesiace = lt.wMonth - (urMiesiac % 12);
+
+        if (urDzien > lt.wDay)
+            miesiace--;
+
+        if (lt.wDay < urDzien)
+        {
+            dni = (dniMiesiaca[lt.wMonth - 1] - urDzien + 1) + lt.wDay;
+
+            if (przestepny (lt.wYear))
+                dni++;
+        }
+        else
+            dni = lt.wDay - urDzien;
+
+        cout << "Masz " << lata << " lat(a), " << miesiace << " miesia(ce/cy), " << dni << " dni." << endl;
+        //-------------------------
+        cout << "\nZakoncz: [t] tak / [n] nie ? :";
         cin >> znak;
     }
     while ((znak != 't') && (znak != 'T'));
 
     return 0;
 }
-
 //----------------------------------------------
 inline void zlaWartosc ()
 {
